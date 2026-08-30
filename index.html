@@ -1,13 +1,14 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Official website of our Minecraft server. Join thousands of players today!">
-    <meta name="theme-color" content="#22c55e">
+    <meta name="description" content="ArchyverseV - A Minecraft network with Survival, Lifesteal, Parkour, OneBlock, BoxPvP and more.">
+    <meta name="theme-color" content="#8b5cf6">
 
-    <title>ArchyverseV | Minecraft Server</title>
+    <title>ArchyverseV | Minecraft Network</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -18,28 +19,32 @@
 
 <body>
 
-    <!-- NAVBAR -->
+    <!-- ================= NAVBAR ================= -->
+
     <header class="navbar">
         <div class="container nav-container">
 
             <a href="#home" class="logo">
-                <span class="logo-cube">◆</span>
-                Block<span>Realm</span>
+                <span class="logo-mark">A</span>
+                <span>Archyverse<span class="logo-accent">V</span></span>
             </a>
 
             <nav id="navMenu">
                 <a href="#home">Home</a>
-                <a href="#modes">Game Modes</a>
-                <a href="#features">Features</a>
-                <a href="#staff">Staff</a>
-                <a href="#store">Store</a>
+                <a href="#games">Games</a>
+                <a href="#why-us">Why Us?</a>
+                <a href="#connect">Connect</a>
                 <a href="#faq">FAQ</a>
             </nav>
 
-            <div class="nav-actions">
-                <button class="play-btn" onclick="scrollToServer()">
+            <div class="nav-right">
+                <a href="https://dsc.gg/archyverse" target="_blank" class="discord-nav">
+                    Discord
+                </a>
+
+                <a href="#connect" class="play-nav">
                     PLAY NOW
-                </button>
+                </a>
 
                 <button class="mobile-menu" onclick="toggleMenu()">
                     ☰
@@ -50,100 +55,98 @@
     </header>
 
 
-    <!-- HERO -->
+    <!-- ================= HERO ================= -->
+
     <main>
 
         <section id="home" class="hero">
 
-            <div class="hero-overlay"></div>
+            <div class="hero-grid"></div>
+
+            <div class="hero-glow glow-one"></div>
+            <div class="hero-glow glow-two"></div>
 
             <div class="container hero-content">
 
-                <div class="status-pill">
-                    <span class="status-dot"></span>
-                    SERVER ONLINE
+                <div class="hero-badge">
+                    <span class="online-dot"></span>
+                    MINECRAFT NETWORK
                 </div>
 
                 <h1>
-                    YOUR NEXT
-                    <span>MINECRAFT</span>
-                    ADVENTURE
+                    WELCOME TO
+                    <span>ARCHYVERSE<span class="hero-v">V</span></span>
                 </h1>
 
-                <p>
-                    Explore a massive Minecraft network built for adventure,
-                    competition, creativity and unforgettable moments.
+                <p class="hero-description">
+                    Looking for a Minecraft server with multiple gamemodes?
+                    ArchyverseV brings together survival, lifesteal, parkour,
+                    OneBlock, BoxPvP and more in one network.
                 </p>
 
                 <div class="hero-buttons">
 
-                    <button class="primary-btn" onclick="scrollToServer()">
-                        ▶ PLAY NOW
-                    </button>
+                    <a href="#connect" class="btn btn-primary">
+                        ⚔ PLAY NOW
+                    </a>
 
-                    <a href="#modes" class="secondary-btn">
-                        EXPLORE SERVER
+                    <a href="https://dsc.gg/archyverse" target="_blank" class="btn btn-secondary">
+                        💬 JOIN DISCORD
                     </a>
 
                 </div>
 
-                <div class="server-card" id="serverCard">
-
-                    <div class="server-info">
-                        <span class="server-label">SERVER IP</span>
-                        <strong id="serverIP">play.ArchyverseV.net</strong>
-                    </div>
-
-                    <div class="server-players">
-                        <span class="server-label">PLAYERS ONLINE</span>
-                        <strong>
-                            <span id="players">247</span>/1000
-                        </strong>
-                    </div>
-
-                    <button class="copy-btn" onclick="copyIP()">
-                        COPY IP
-                    </button>
-
-                </div>
-
-                <div id="copyMessage" class="copy-message">
-                    Server IP copied!
+                <div class="version-info">
+                    <span>SUPPORTED VERSIONS</span>
+                    <strong>1.7 → 26.1</strong>
                 </div>
 
             </div>
 
-            <div class="scroll-indicator">
+            <div class="hero-scroll">
                 <span>SCROLL TO EXPLORE</span>
-                ↓
+                <div>↓</div>
             </div>
 
         </section>
 
 
-        <!-- STATS -->
-        <section class="stats-section">
+        <!-- ================= QUICK INFO ================= -->
 
-            <div class="container stats-grid">
+        <section class="quick-info">
 
-                <div class="stat">
-                    <strong data-target="250000">0</strong>
-                    <span>Registered Players</span>
+            <div class="container quick-grid">
+
+                <div class="quick-card">
+                    <div class="quick-icon">🎮</div>
+                    <div>
+                        <strong>Multiple Gamemodes</strong>
+                        <span>Something for everyone</span>
+                    </div>
                 </div>
 
-                <div class="stat">
-                    <strong data-target="99">0</strong>
-                    <span>Server Uptime %</span>
+                <div class="quick-card">
+                    <div class="quick-icon">⚡</div>
+                    <div>
+                        <strong>Low Lag</strong>
+                        <span>Optimized network</span>
+                    </div>
                 </div>
 
-                <div class="stat">
-                    <strong data-target="12">0</strong>
-                    <span>Game Modes</span>
+                <div class="quick-card">
+                    <div class="quick-icon">🌐</div>
+                    <div>
+                        <strong>Wide Version Support</strong>
+                        <span>1.7 → 26.1</span>
+                    </div>
                 </div>
 
-                <div class="stat">
-                    <strong data-target="2021">0</strong>
-                    <span>Founded</span>
+                <div class="quick-card">
+                    <div class="quick-icon">🧱</div>
+                    <div>
+                        <strong>Community Built</strong>
+                        <span>Made with players</span>
+                    </div>
                 </div>
 
             </div>
@@ -151,79 +154,246 @@
         </section>
 
 
-        <!-- GAME MODES -->
-        <section id="modes" class="section">
+        <!-- ================= GAMES ================= -->
+
+        <section id="games" class="section games-section">
 
             <div class="container">
 
-                <div class="section-heading">
-                    <span class="section-tag">DISCOVER</span>
-                    <h2>GAME MODES</h2>
+                <div class="section-header">
+
+                    <div class="section-label">
+                        OUR NETWORK
+                    </div>
+
+                    <h2>
+                        CHOOSE YOUR
+                        <span>ADVENTURE</span>
+                    </h2>
+
                     <p>
-                        Whether you love survival, PvP or building,
-                        there is always something waiting for you.
+                        From classic survival to unusual PvP experiences,
+                        ArchyverseV has a gamemode for every type of player.
                     </p>
+
                 </div>
 
-                <div class="modes-grid">
 
-                    <article class="mode-card survival">
-                        <div class="mode-icon">🌲</div>
-                        <span class="mode-number">01</span>
+                <div class="games-grid">
+
+                    <!-- SURVIVAL -->
+
+                    <article class="game-card game-survival">
+
+                        <div class="game-top">
+                            <span class="game-number">01</span>
+                            <span class="game-status available">
+                                ● AVAILABLE
+                            </span>
+                        </div>
+
+                        <div class="game-icon">
+                            🌲
+                        </div>
 
                         <h3>Survival</h3>
 
+                        <div class="game-version">
+                            Minecraft 1.20.6
+                        </div>
+
                         <p>
-                            Build your empire, explore dangerous lands,
-                            fight monsters and create your own story.
+                            A classic survival experience with more than
+                            70 plugins. Protect your base with Protection
+                            Stones, use the shop, trade items and much more.
                         </p>
 
-                        <a href="#">LEARN MORE →</a>
+                        <div class="game-tags">
+                            <span>70+ PLUGINS</span>
+                            <span>PROTECTION STONES</span>
+                            <span>SHOP</span>
+                        </div>
+
                     </article>
 
 
-                    <article class="mode-card skyblock">
-                        <div class="mode-icon">☁️</div>
-                        <span class="mode-number">02</span>
+                    <!-- LIFESTEAL -->
 
-                        <h3>SkyBlock</h3>
+                    <article class="game-card game-lifesteal">
+
+                        <div class="game-top">
+                            <span class="game-number">02</span>
+                            <span class="game-status available">
+                                ● AVAILABLE
+                            </span>
+                        </div>
+
+                        <div class="game-icon">
+                            ❤️
+                        </div>
+
+                        <h3>Anarchy / Lifesteal</h3>
+
+                        <div class="game-version">
+                            Minecraft 1.21.11
+                        </div>
 
                         <p>
-                            Start with nothing on a tiny island and
-                            build the ultimate floating kingdom.
+                            A Lifesteal experience with a more chaotic
+                            twist. Fight other players, survive and discover
+                            the unique features of this gamemode.
                         </p>
 
-                        <a href="#">LEARN MORE →</a>
+                        <div class="game-tags">
+                            <span>LIFESTEAL</span>
+                            <span>PVP</span>
+                            <span>ANARCHY</span>
+                        </div>
+
                     </article>
 
 
-                    <article class="mode-card factions">
-                        <div class="mode-icon">⚔️</div>
-                        <span class="mode-number">03</span>
+                    <!-- PARKOUR -->
 
-                        <h3>Factions</h3>
+                    <article class="game-card game-parkour">
+
+                        <div class="game-top">
+                            <span class="game-number">03</span>
+                            <span class="game-status available">
+                                ● AVAILABLE
+                            </span>
+                        </div>
+
+                        <div class="game-icon">
+                            🏃
+                        </div>
+
+                        <h3>Parkour</h3>
+
+                        <div class="game-version">
+                            Community Built
+                        </div>
 
                         <p>
-                            Create your faction, conquer territory,
-                            raid enemies and dominate the server.
+                            Test your movement skills in a challenging
+                            parkour experience created by the ArchyverseV
+                            community.
                         </p>
 
-                        <a href="#">LEARN MORE →</a>
+                        <div class="game-tags">
+                            <span>PARKOUR</span>
+                            <span>CHALLENGES</span>
+                            <span>COMMUNITY</span>
+                        </div>
+
                     </article>
 
 
-                    <article class="mode-card minigames">
-                        <div class="mode-icon">🎮</div>
-                        <span class="mode-number">04</span>
+                    <!-- KITPVP -->
 
-                        <h3>Mini Games</h3>
+                    <article class="game-card game-kitpvp unavailable-card">
+
+                        <div class="game-top">
+                            <span class="game-number">04</span>
+                            <span class="game-status unavailable">
+                                ● TEMPORARILY OFFLINE
+                            </span>
+                        </div>
+
+                        <div class="game-icon">
+                            ⚔️
+                        </div>
+
+                        <h3>KitPvP</h3>
+
+                        <div class="game-version">
+                            Coming back soon
+                        </div>
 
                         <p>
-                            Compete against other players in fast,
-                            chaotic and competitive mini games.
+                            Choose a kit, enter the arena and fight other
+                            players to earn levels and money. Use your
+                            rewards to unlock even more kits.
                         </p>
 
-                        <a href="#">LEARN MORE →</a>
+                        <div class="game-tags">
+                            <span>KITS</span>
+                            <span>PVP</span>
+                            <span>LEVELS</span>
+                        </div>
+
+                    </article>
+
+
+                    <!-- ONEBLOCK -->
+
+                    <article class="game-card game-oneblock">
+
+                        <div class="game-top">
+                            <span class="game-number">05</span>
+                            <span class="game-status available">
+                                ● AVAILABLE
+                            </span>
+                        </div>
+
+                        <div class="game-icon">
+                            🟦
+                        </div>
+
+                        <h3>OneBlock</h3>
+
+                        <div class="game-version">
+                            Minecraft 1.12
+                        </div>
+
+                        <p>
+                            Start with a single block and progress through
+                            a complete OneBlock adventure. Explore the
+                            Nether and End while protecting your island.
+                        </p>
+
+                        <div class="game-tags">
+                            <span>NETHER</span>
+                            <span>THE END</span>
+                            <span>PROTECTION</span>
+                        </div>
+
+                    </article>
+
+
+                    <!-- BOXPVP -->
+
+                    <article class="game-card game-boxpvp">
+
+                        <div class="game-top">
+                            <span class="game-number">06</span>
+                            <span class="game-status available">
+                                ● AVAILABLE
+                            </span>
+                        </div>
+
+                        <div class="game-icon">
+                            📦
+                        </div>
+
+                        <h3>BoxPvP</h3>
+
+                        <div class="game-version">
+                            Unique Experience
+                        </div>
+
+                        <p>
+                            It's BoxPvP... but not exactly the BoxPvP
+                            you might expect. Come and discover what makes
+                            this gamemode different.
+                        </p>
+
+                        <div class="game-tags">
+                            <span>BOXPVP</span>
+                            <span>PVP</span>
+                            <span>UNIQUE</span>
+                        </div>
+
                     </article>
 
                 </div>
@@ -233,74 +403,91 @@
         </section>
 
 
-        <!-- FEATURES -->
-        <section id="features" class="section features-section">
+        <!-- ================= WHY US ================= -->
+
+        <section id="why-us" class="section why-section">
 
             <div class="container">
 
-                <div class="section-heading">
-                    <span class="section-tag">WHY US?</span>
-                    <h2>BUILT DIFFERENT</h2>
+                <div class="section-header">
+
+                    <div class="section-label">
+                        WHY ARCHYVERSEV?
+                    </div>
+
+                    <h2>
+                        MORE THAN
+                        <span>A SERVER</span>
+                    </h2>
+
                     <p>
-                        We focus on creating a Minecraft experience
-                        players actually want to come back to.
+                        We want ArchyverseV to be a network where players
+                        can jump between different experiences without
+                        dealing with unnecessary lag.
                     </p>
+
                 </div>
 
 
                 <div class="features-grid">
 
-                    <div class="feature">
+                    <div class="feature-card">
+                        <div class="feature-number">01</div>
                         <div class="feature-icon">⚡</div>
-                        <h3>High Performance</h3>
+                        <h3>Performance</h3>
                         <p>
-                            Powerful hardware and optimized plugins
-                            keep the server fast and lag-free.
+                            Our goal is to offer a smooth experience
+                            across our different gamemodes.
                         </p>
                     </div>
 
-                    <div class="feature">
-                        <div class="feature-icon">🛡️</div>
-                        <h3>Advanced Anti-Cheat</h3>
+                    <div class="feature-card">
+                        <div class="feature-number">02</div>
+                        <div class="feature-icon">🎮</div>
+                        <h3>Multiple Games</h3>
                         <p>
-                            Our security systems protect fair players
-                            and keep the competition clean.
+                            Survival, Lifesteal, Parkour, OneBlock,
+                            BoxPvP and more all within one network.
                         </p>
                     </div>
 
-                    <div class="feature">
-                        <div class="feature-icon">🌎</div>
-                        <h3>Global Network</h3>
+                    <div class="feature-card">
+                        <div class="feature-number">03</div>
+                        <div class="feature-icon">🌍</div>
+                        <h3>Wide Compatibility</h3>
                         <p>
-                            High-quality infrastructure gives players
-                            around the world a smooth experience.
+                            We support a huge range of Minecraft versions,
+                            from 1.7 all the way to 26.1.
                         </p>
                     </div>
 
-                    <div class="feature">
-                        <div class="feature-icon">🔄</div>
-                        <h3>Constant Updates</h3>
+                    <div class="feature-card">
+                        <div class="feature-number">04</div>
+                        <div class="feature-icon">🛠️</div>
+                        <h3>Constant Development</h3>
                         <p>
-                            New content, events and improvements are
-                            released regularly.
+                            New features, fixes and gamemodes are part
+                            of the ongoing development of the network.
                         </p>
                     </div>
 
-                    <div class="feature">
-                        <div class="feature-icon">🎁</div>
-                        <h3>Daily Rewards</h3>
-                        <p>
-                            Log in every day and earn rewards,
-                            cosmetics and special items.
-                        </p>
-                    </div>
-
-                    <div class="feature">
+                    <div class="feature-card">
+                        <div class="feature-number">05</div>
                         <div class="feature-icon">👥</div>
-                        <h3>Friendly Community</h3>
+                        <h3>Community</h3>
                         <p>
-                            Meet thousands of players and become
-                            part of our growing community.
+                            Our community plays an important role in
+                            shaping the future of ArchyverseV.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-number">06</div>
+                        <div class="feature-icon">🔥</div>
+                        <h3>Unique Experiences</h3>
+                        <p>
+                            Some of our gamemodes aren't the usual
+                            Minecraft experience. That's the point.
                         </p>
                     </div>
 
@@ -311,48 +498,295 @@
         </section>
 
 
-        <!-- STAFF -->
-        <section id="staff" class="section">
+        <!-- ================= CONNECT ================= -->
+
+        <section id="connect" class="section connect-section">
 
             <div class="container">
 
-                <div class="section-heading">
-                    <span class="section-tag">OUR TEAM</span>
-                    <h2>MEET THE STAFF</h2>
+                <div class="section-header">
+
+                    <div class="section-label">
+                        JOIN THE NETWORK
+                    </div>
+
+                    <h2>
+                        READY TO
+                        <span>PLAY?</span>
+                    </h2>
+
                     <p>
-                        The people working behind the scenes to make
-                        ArchyverseV better every day.
+                        Choose your platform and connect to ArchyverseV.
                     </p>
+
                 </div>
 
-                <div class="staff-grid">
 
-                    <div class="staff-card">
-                        <div class="staff-avatar">👑</div>
-                        <span class="role owner">OWNER</span>
-                        <h3>Alex</h3>
-                        <p>Founder & Owner</p>
+                <div class="connect-grid">
+
+
+                    <!-- JAVA -->
+
+                    <div class="connect-card">
+
+                        <div class="connect-icon">
+                            ☕
+                        </div>
+
+                        <div class="connect-type">
+                            JAVA EDITION
+                        </div>
+
+                        <h3>Java Edition</h3>
+
+                        <p>
+                            Connect from Minecraft Java Edition.
+                        </p>
+
+                        <div class="ip-box">
+
+                            <code id="javaIP">
+                                java.archyverse.org
+                            </code>
+
+                            <button onclick="copyIP('java.archyverse.org', this)">
+                                COPY
+                            </button>
+
+                        </div>
+
+                        <div class="connect-note">
+                            ● Recommended
+                        </div>
+
                     </div>
 
-                    <div class="staff-card">
-                        <div class="staff-avatar">⚡</div>
-                        <span class="role admin">ADMIN</span>
-                        <h3>Steve</h3>
-                        <p>Network Administrator</p>
+
+                    <!-- EAGLERCRAFT -->
+
+                    <div class="connect-card featured-connect">
+
+                        <div class="connect-icon">
+                            🌐
+                        </div>
+
+                        <div class="connect-type">
+                            EAGLERCRAFT
+                        </div>
+
+                        <h3>Play in Browser</h3>
+
+                        <p>
+                            Use our Eaglercraft connection to play
+                            directly from a compatible browser client.
+                        </p>
+
+                        <div class="ip-box">
+
+                            <code id="eaglerIP">
+                                wss://mc.archyverse.org
+                            </code>
+
+                            <button onclick="copyIP('wss://mc.archyverse.org', this)">
+                                COPY
+                            </button>
+
+                        </div>
+
+                        <div class="connect-note">
+                            ● Browser Connection
+                        </div>
+
                     </div>
 
-                    <div class="staff-card">
-                        <div class="staff-avatar">🛡️</div>
-                        <span class="role moderator">MODERATOR</span>
-                        <h3>Jamie</h3>
-                        <p>Community Moderator</p>
+
+                    <!-- BEDROCK -->
+
+                    <div class="connect-card disabled-connect">
+
+                        <div class="connect-icon">
+                            📱
+                        </div>
+
+                        <div class="connect-type">
+                            BEDROCK EDITION
+                        </div>
+
+                        <h3>Bedrock</h3>
+
+                        <p>
+                            Bedrock support is planned, but the connection
+                            is currently unavailable.
+                        </p>
+
+                        <div class="ip-box disabled-ip">
+
+                            <code>
+                                archyverse.org
+                            </code>
+
+                            <span>
+                                19132
+                            </span>
+
+                        </div>
+
+                        <div class="connect-note offline">
+                            ● NOT WORKING RIGHT NOW
+                        </div>
+
                     </div>
 
-                    <div class="staff-card">
-                        <div class="staff-avatar">🔧</div>
-                        <span class="role developer">DEVELOPER</span>
-                        <h3>Max</h3>
-                        <p>Plugin Developer</p>
+                </div>
+
+
+                <!-- DISCORD -->
+
+                <div class="discord-box">
+
+                    <div class="discord-symbol">
+                        💬
+                    </div>
+
+                    <div class="discord-text">
+
+                        <span>COMMUNITY</span>
+
+                        <h3>Join the ArchyverseV Discord</h3>
+
+                        <p>
+                            Get updates, talk with other players,
+                            report problems and stay up to date.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="https://dsc.gg/archyverse"
+                        target="_blank"
+                        class="discord-button"
+                    >
+                        JOIN DISCORD →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FAQ ================= -->
+
+        <section id="faq" class="section faq-section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-label">
+                        NEED HELP?
+                    </div>
+
+                    <h2>
+                        FREQUENTLY ASKED
+                        <span>QUESTIONS</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="faq-container">
+
+                    <div class="faq-item">
+
+                        <button onclick="toggleFAQ(this)">
+                            <span>What is ArchyverseV?</span>
+                            <b>+</b>
+                        </button>
+
+                        <div class="faq-answer">
+                            ArchyverseV is a Minecraft network offering
+                            multiple gamemodes, including Survival,
+                            Anarchy/Lifesteal, Parkour, OneBlock and BoxPvP.
+                        </div>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <button onclick="toggleFAQ(this)">
+                            <span>What versions does ArchyverseV support?</span>
+                            <b>+</b>
+                        </button>
+
+                        <div class="faq-answer">
+                            The network supports a wide range of Minecraft
+                            versions, from 1.7 to 26.1.
+                        </div>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <button onclick="toggleFAQ(this)">
+                            <span>What is the Java IP?</span>
+                            <b>+</b>
+                        </button>
+
+                        <div class="faq-answer">
+                            The Java Edition server address is
+                            <strong>java.archyverse.org</strong>.
+                        </div>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <button onclick="toggleFAQ(this)">
+                            <span>Can I play ArchyverseV using Eaglercraft?</span>
+                            <b>+</b>
+                        </button>
+
+                        <div class="faq-answer">
+                            Yes. The Eaglercraft WebSocket address is
+                            <strong>wss://mc.archyverse.org</strong>.
+                        </div>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <button onclick="toggleFAQ(this)">
+                            <span>Is Bedrock currently available?</span>
+                            <b>+</b>
+                        </button>
+
+                        <div class="faq-answer">
+                            No. Bedrock support is currently not working.
+                            The listed address is archyverse.org on port 19132.
+                        </div>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <button onclick="toggleFAQ(this)">
+                            <span>Why is KitPvP unavailable?</span>
+                            <b>+</b>
+                        </button>
+
+                        <div class="faq-answer">
+                            KitPvP is temporarily unavailable because of
+                            current RAM limitations. The gamemode may return
+                            in the future.
+                        </div>
+
                     </div>
 
                 </div>
@@ -362,178 +796,41 @@
         </section>
 
 
-        <!-- STORE -->
-        <section id="store" class="section store-section">
+        <!-- ================= FINAL CTA ================= -->
 
-            <div class="container">
+        <section class="final-cta">
 
-                <div class="section-heading">
-                    <span class="section-tag">SUPPORT US</span>
-                    <h2>SERVER STORE</h2>
-                    <p>
-                        Support the server and unlock exclusive cosmetics
-                        and perks.
-                    </p>
+            <div class="cta-glow"></div>
+
+            <div class="container cta-content">
+
+                <div class="section-label">
+                    ARCHYVERSEV
                 </div>
 
-                <div class="store-grid">
+                <h2>
+                    YOUR ADVENTURE
+                    <span>STARTS HERE.</span>
+                </h2>
 
-                    <div class="store-card">
-                        <span class="popular">POPULAR</span>
-                        <div class="rank-icon">⭐</div>
+                <p>
+                    Choose a gamemode. Join your friends.
+                    Build something unforgettable.
+                </p>
 
-                        <h3>VIP</h3>
+                <div class="hero-buttons">
 
-                        <div class="price">
-                            <span>$</span>9.99
-                        </div>
+                    <a href="#connect" class="btn btn-primary">
+                        ⚔ PLAY NOW
+                    </a>
 
-                        <ul>
-                            <li>✓ VIP Rank</li>
-                            <li>✓ Exclusive Kit</li>
-                            <li>✓ Custom Prefix</li>
-                            <li>✓ 3 Extra Homes</li>
-                        </ul>
-
-                        <button>VIEW PACKAGE</button>
-                    </div>
-
-
-                    <div class="store-card featured">
-                        <span class="popular">BEST VALUE</span>
-                        <div class="rank-icon">💎</div>
-
-                        <h3>ELITE</h3>
-
-                        <div class="price">
-                            <span>$</span>19.99
-                        </div>
-
-                        <ul>
-                            <li>✓ Elite Rank</li>
-                            <li>✓ Exclusive Cosmetics</li>
-                            <li>✓ Custom Prefix</li>
-                            <li>✓ 10 Extra Homes</li>
-                        </ul>
-
-                        <button>VIEW PACKAGE</button>
-                    </div>
-
-
-                    <div class="store-card">
-                        <div class="rank-icon">👑</div>
-
-                        <h3>LEGEND</h3>
-
-                        <div class="price">
-                            <span>$</span>39.99
-                        </div>
-
-                        <ul>
-                            <li>✓ Legend Rank</li>
-                            <li>✓ Exclusive Cosmetics</li>
-                            <li>✓ Custom Prefix</li>
-                            <li>✓ Unlimited Homes</li>
-                        </ul>
-
-                        <button>VIEW PACKAGE</button>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- DISCORD -->
-        <section class="discord-section">
-
-            <div class="container discord-container">
-
-                <div class="discord-icon">💬</div>
-
-                <div>
-                    <span class="section-tag">COMMUNITY</span>
-                    <h2>JOIN OUR DISCORD</h2>
-                    <p>
-                        Chat with other players, get support,
-                        participate in events and receive news.
-                    </p>
-                </div>
-
-                <a href="#" class="discord-btn">
-                    JOIN DISCORD
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- FAQ -->
-        <section id="faq" class="section">
-
-            <div class="container">
-
-                <div class="section-heading">
-                    <span class="section-tag">HELP CENTER</span>
-                    <h2>FREQUENTLY ASKED QUESTIONS</h2>
-                </div>
-
-                <div class="faq">
-
-                    <div class="faq-item">
-                        <button onclick="toggleFAQ(this)">
-                            What is the server IP?
-                            <span>+</span>
-                        </button>
-
-                        <div class="faq-answer">
-                            Our official server address is
-                            <strong>play.ArchyverseV.net</strong>.
-                            Simply add it to your Minecraft multiplayer list.
-                        </div>
-                    </div>
-
-
-                    <div class="faq-item">
-                        <button onclick="toggleFAQ(this)">
-                            Which Minecraft versions are supported?
-                            <span>+</span>
-                        </button>
-
-                        <div class="faq-answer">
-                            We currently support Minecraft versions
-                            1.20.x and newer.
-                        </div>
-                    </div>
-
-
-                    <div class="faq-item">
-                        <button onclick="toggleFAQ(this)">
-                            Is the server free to play?
-                            <span>+</span>
-                        </button>
-
-                        <div class="faq-answer">
-                            Yes! The server is completely free to join.
-                            Optional purchases are available in our store.
-                        </div>
-                    </div>
-
-
-                    <div class="faq-item">
-                        <button onclick="toggleFAQ(this)">
-                            How can I become staff?
-                            <span>+</span>
-                        </button>
-
-                        <div class="faq-answer">
-                            Staff applications are opened periodically.
-                            Join our Discord to see when applications are available.
-                        </div>
-                    </div>
+                    <a
+                        href="https://dsc.gg/archyverse"
+                        target="_blank"
+                        class="btn btn-secondary"
+                    >
+                        💬 DISCORD
+                    </a>
 
                 </div>
 
@@ -544,57 +841,94 @@
     </main>
 
 
-    <!-- FOOTER -->
+    <!-- ================= FOOTER ================= -->
+
     <footer>
 
         <div class="container footer-grid">
 
-            <div>
-                <a href="#" class="logo">
-                    <span class="logo-cube">◆</span>
-                    Block<span>Realm</span>
+            <div class="footer-brand">
+
+                <a href="#home" class="logo">
+                    <span class="logo-mark">A</span>
+                    <span>Archyverse<span class="logo-accent">V</span></span>
                 </a>
 
                 <p>
-                    Your next Minecraft adventure starts here.
+                    A Minecraft network with multiple gamemodes,
+                    built for players who want something different.
                 </p>
+
             </div>
 
-            <div>
-                <h4>QUICK LINKS</h4>
+
+            <div class="footer-column">
+
+                <h4>NAVIGATION</h4>
+
                 <a href="#home">Home</a>
-                <a href="#modes">Game Modes</a>
-                <a href="#store">Store</a>
-                <a href="#faq">FAQ</a>
+                <a href="#games">Games</a>
+                <a href="#why-us">Why Us?</a>
+                <a href="#connect">Connect</a>
+
             </div>
 
-            <div>
+
+            <div class="footer-column">
+
+                <h4>GAMES</h4>
+
+                <a href="#games">Survival</a>
+                <a href="#games">Lifesteal</a>
+                <a href="#games">Parkour</a>
+                <a href="#games">OneBlock</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
                 <h4>COMMUNITY</h4>
-                <a href="#">Discord</a>
-                <a href="#">Twitter</a>
-                <a href="#">YouTube</a>
-                <a href="#">TikTok</a>
-            </div>
 
-            <div>
-                <h4>SERVER</h4>
-                <p>Java Edition</p>
-                <p>play.ArchyverseV.net</p>
-                <p>Version 1.20+</p>
+                <a href="https://dsc.gg/archyverse" target="_blank">
+                    Discord
+                </a>
+
+                <a href="#faq">
+                    FAQ
+                </a>
+
             </div>
 
         </div>
 
+
         <div class="footer-bottom">
-            © 2026 ArchyverseV. All rights reserved.
-            <br>
-            Not affiliated with Mojang Studios or Microsoft.
+
+            <div class="container">
+
+                <span>
+                    © 2026 ArchyverseV. All rights reserved.
+                </span>
+
+                <span>
+                    Not affiliated with Mojang Studios or Microsoft.
+                </span>
+
+            </div>
+
         </div>
 
     </footer>
+
+
+    <div id="toast" class="toast">
+        IP copied!
+    </div>
 
 
     <script src="script.js"></script>
 
 </body>
 </html>
+```
