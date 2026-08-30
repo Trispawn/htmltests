@@ -1,6 +1,6 @@
 ```javascript
 /* =========================================
-   ARCHYVERSEV WEBSITE JAVASCRIPT
+   ARCHYVERSEV JAVASCRIPT
 ========================================= */
 
 
@@ -8,55 +8,56 @@
 
 function toggleMenu() {
 
-    const nav = document.getElementById("navMenu");
+    const navigation =
+        document.getElementById("navigation");
 
-    nav.classList.toggle("active");
+    navigation.classList.toggle("active");
 
 }
 
 
-/* Close mobile menu after clicking a link */
+/* Close mobile menu when clicking a link */
 
-document.querySelectorAll("#navMenu a").forEach(link => {
+document
+    .querySelectorAll("#navigation a")
+    .forEach(link => {
 
-    link.addEventListener("click", () => {
+        link.addEventListener("click", () => {
 
-        document
-            .getElementById("navMenu")
-            .classList.remove("active");
+            document
+                .getElementById("navigation")
+                .classList.remove("active");
+
+        });
 
     });
-
-});
 
 
 /* ================= COPY IP ================= */
 
-async function copyIP(ip, button) {
+async function copyText(text, button) {
 
     try {
 
-        await navigator.clipboard.writeText(ip);
+        await navigator.clipboard.writeText(text);
 
-        showToast("IP copied!");
+        const original =
+            button.textContent;
 
-        if (button) {
+        button.textContent = "COPIED";
 
-            const originalText = button.textContent;
+        showToast("Server address copied!");
 
-            button.textContent = "COPIED";
+        setTimeout(() => {
 
-            setTimeout(() => {
+            button.textContent =
+                original;
 
-                button.textContent = originalText;
-
-            }, 1800);
-
-        }
+        }, 1800);
 
     } catch (error) {
 
-        showToast(ip);
+        showToast(text);
 
     }
 
@@ -87,23 +88,23 @@ function showToast(message) {
 
 function toggleFAQ(button) {
 
-    const item =
+    const current =
         button.parentElement;
 
-    const allItems =
+    const items =
         document.querySelectorAll(".faq-item");
 
-    allItems.forEach(otherItem => {
+    items.forEach(item => {
 
-        if (otherItem !== item) {
+        if (item !== current) {
 
-            otherItem.classList.remove("active");
+            item.classList.remove("active");
 
         }
 
     });
 
-    item.classList.toggle("active");
+    current.classList.toggle("active");
 
 }
 
@@ -118,12 +119,12 @@ window.addEventListener("scroll", () => {
     if (window.scrollY > 40) {
 
         navbar.style.background =
-            "rgba(6,6,9,0.95)";
+            "rgba(5,5,8,0.96)";
 
     } else {
 
         navbar.style.background =
-            "rgba(6,6,9,0.75)";
+            "rgba(7,7,10,0.82)";
 
     }
 
@@ -134,7 +135,7 @@ window.addEventListener("scroll", () => {
 
 const revealElements =
     document.querySelectorAll(
-        ".game-card, .feature-card, .connect-card, .faq-item, .quick-card"
+        ".game-card, .feature, .connection-card, .discord-card"
     );
 
 
@@ -148,10 +149,9 @@ const observer =
                     return;
                 }
 
-                entry.target.style.opacity = "1";
-
-                entry.target.style.transform =
-                    "translateY(0)";
+                entry.target.classList.add(
+                    "visible"
+                );
 
                 observer.unobserve(
                     entry.target
@@ -168,42 +168,9 @@ const observer =
 
 revealElements.forEach(element => {
 
-    element.style.opacity = "0";
-
-    element.style.transform =
-        "translateY(25px)";
-
-    element.style.transition =
-        "opacity 0.6s ease, transform 0.6s ease";
+    element.classList.add("reveal");
 
     observer.observe(element);
-
-});
-
-
-/* ================= SMOOTH ANCHOR LINKS ================= */
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-    anchor.addEventListener("click", function(event) {
-
-        const target =
-            document.querySelector(
-                this.getAttribute("href")
-            );
-
-        if (!target) {
-            return;
-        }
-
-        event.preventDefault();
-
-        target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
-    });
 
 });
 
@@ -212,7 +179,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 console.log(
     "%c ARCHYVERSEV ",
-    "background:#8b5cf6;color:white;font-size:20px;font-weight:bold;padding:8px;"
+    "background:#8b5cf6;color:white;font-size:18px;font-weight:bold;padding:8px"
 );
 
 console.log(
