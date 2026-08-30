@@ -1,23 +1,21 @@
+```javascript
 /* =========================================
-   ArchyverseV WEBSITE JAVASCRIPT
+   ARCHYVERSEV WEBSITE JAVASCRIPT
 ========================================= */
 
 
-/* SERVER CONFIGURATION */
-
-const SERVER_IP = "play.ArchyverseV.net";
-
-
-/* MOBILE NAVIGATION */
+/* ================= MOBILE MENU ================= */
 
 function toggleMenu() {
+
     const nav = document.getElementById("navMenu");
 
     nav.classList.toggle("active");
+
 }
 
 
-/* CLOSE MOBILE MENU WHEN CLICKING A LINK */
+/* Close mobile menu after clicking a link */
 
 document.querySelectorAll("#navMenu a").forEach(link => {
 
@@ -32,52 +30,65 @@ document.querySelectorAll("#navMenu a").forEach(link => {
 });
 
 
-/* SCROLL TO SERVER */
+/* ================= COPY IP ================= */
 
-function scrollToServer() {
-
-    document
-        .getElementById("serverCard")
-        .scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-}
-
-
-/* COPY SERVER IP */
-
-async function copyIP() {
+async function copyIP(ip, button) {
 
     try {
 
-        await navigator.clipboard.writeText(SERVER_IP);
+        await navigator.clipboard.writeText(ip);
 
-        const message =
-            document.getElementById("copyMessage");
+        showToast("IP copied!");
 
-        message.classList.add("show");
+        if (button) {
 
-        setTimeout(() => {
-            message.classList.remove("show");
-        }, 2500);
+            const originalText = button.textContent;
+
+            button.textContent = "COPIED";
+
+            setTimeout(() => {
+
+                button.textContent = originalText;
+
+            }, 1800);
+
+        }
 
     } catch (error) {
 
-        alert(
-            "Server IP: " + SERVER_IP
-        );
+        showToast(ip);
 
     }
+
 }
 
 
-/* FAQ ACCORDION */
+/* ================= TOAST ================= */
+
+function showToast(message) {
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 2200);
+
+}
+
+
+/* ================= FAQ ================= */
 
 function toggleFAQ(button) {
 
-    const item = button.parentElement;
+    const item =
+        button.parentElement;
 
     const allItems =
         document.querySelectorAll(".faq-item");
@@ -85,159 +96,74 @@ function toggleFAQ(button) {
     allItems.forEach(otherItem => {
 
         if (otherItem !== item) {
+
             otherItem.classList.remove("active");
+
         }
 
     });
 
     item.classList.toggle("active");
+
 }
 
 
-/* ANIMATED STAT NUMBERS */
-
-const counters =
-    document.querySelectorAll("[data-target]");
-
-const counterObserver =
-    new IntersectionObserver((entries, observer) => {
-
-        entries.forEach(entry => {
-
-            if (!entry.isIntersecting) return;
-
-            const counter = entry.target;
-
-            const target =
-                Number(counter.dataset.target);
-
-            let current = 0;
-
-            const duration = 1600;
-
-            const startTime = performance.now();
-
-            function updateCounter(time) {
-
-                const progress =
-                    Math.min(
-                        (time - startTime) / duration,
-                        1
-                    );
-
-                const eased =
-                    1 - Math.pow(1 - progress, 3);
-
-                current =
-                    Math.floor(target * eased);
-
-                counter.textContent =
-                    current.toLocaleString();
-
-                if (progress < 1) {
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    counter.textContent =
-                        target.toLocaleString();
-                }
-            }
-
-            requestAnimationFrame(updateCounter);
-
-            observer.unobserve(counter);
-
-        });
-
-    }, {
-        threshold: 0.5
-    });
-
-
-counters.forEach(counter => {
-    counterObserver.observe(counter);
-});
-
-
-/* FAKE LIVE PLAYER COUNTER */
-
-const playersElement =
-    document.getElementById("players");
-
-let onlinePlayers = 247;
-
-function updatePlayers() {
-
-    const change =
-        Math.floor(Math.random() * 7) - 3;
-
-    onlinePlayers += change;
-
-    if (onlinePlayers < 180) {
-        onlinePlayers = 180;
-    }
-
-    if (onlinePlayers > 350) {
-        onlinePlayers = 350;
-    }
-
-    playersElement.textContent =
-        onlinePlayers;
-}
-
-setInterval(updatePlayers, 5000);
-
-
-/* NAVBAR BACKGROUND ON SCROLL */
+/* ================= NAVBAR ================= */
 
 window.addEventListener("scroll", () => {
 
     const navbar =
         document.querySelector(".navbar");
 
-    if (window.scrollY > 50) {
+    if (window.scrollY > 40) {
 
         navbar.style.background =
-            "rgba(5, 9, 7, 0.95)";
+            "rgba(6,6,9,0.95)";
 
     } else {
 
         navbar.style.background =
-            "rgba(7, 11, 9, 0.75)";
+            "rgba(6,6,9,0.75)";
 
     }
 
 });
 
 
-/* REVEAL ELEMENTS ON SCROLL */
+/* ================= SCROLL REVEAL ================= */
 
 const revealElements =
     document.querySelectorAll(
-        ".mode-card, .feature, .staff-card, .store-card"
+        ".game-card, .feature-card, .connect-card, .faq-item, .quick-card"
     );
 
-const revealObserver =
-    new IntersectionObserver((entries) => {
 
-        entries.forEach(entry => {
+const observer =
+    new IntersectionObserver(
+        entries => {
 
-            if (entry.isIntersecting) {
+            entries.forEach(entry => {
+
+                if (!entry.isIntersecting) {
+                    return;
+                }
 
                 entry.target.style.opacity = "1";
+
                 entry.target.style.transform =
                     "translateY(0)";
 
-                revealObserver.unobserve(
+                observer.unobserve(
                     entry.target
                 );
 
-            }
+            });
 
-        });
-
-    }, {
-        threshold: 0.1
-    });
+        },
+        {
+            threshold: 0.08
+        }
+    );
 
 
 revealElements.forEach(element => {
@@ -250,12 +176,46 @@ revealElements.forEach(element => {
     element.style.transition =
         "opacity 0.6s ease, transform 0.6s ease";
 
-    revealObserver.observe(element);
+    observer.observe(element);
 
 });
 
 
-/* UPDATE PAGE SERVER IP */
+/* ================= SMOOTH ANCHOR LINKS ================= */
 
-document.getElementById("serverIP").textContent =
-    SERVER_IP;
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+    anchor.addEventListener("click", function(event) {
+
+        const target =
+            document.querySelector(
+                this.getAttribute("href")
+            );
+
+        if (!target) {
+            return;
+        }
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    });
+
+});
+
+
+/* ================= CONSOLE ================= */
+
+console.log(
+    "%c ARCHYVERSEV ",
+    "background:#8b5cf6;color:white;font-size:20px;font-weight:bold;padding:8px;"
+);
+
+console.log(
+    "Welcome to the ArchyverseV network!"
+);
+```
