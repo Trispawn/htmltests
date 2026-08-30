@@ -1,11 +1,11 @@
 /* =========================================
-   BLOCKREALM WEBSITE JAVASCRIPT
+   ArchyverseV WEBSITE JAVASCRIPT
 ========================================= */
 
 
 /* SERVER CONFIGURATION */
 
-const SERVER_IP = "play.blockrealm.net";
+const SERVER_IP = "play.ArchyverseV.net";
 
 
 /* MOBILE NAVIGATION */
