@@ -1,11 +1,600 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ArchyverseV Official Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Official website of our Minecraft server. Join thousands of players today!">
+    <meta name="theme-color" content="#22c55e">
+
+    <title>BlockRealm | Minecraft Server</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <h1>Hey! 👋</h1>
-    <p>GG</p>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-container">
+
+            <a href="#home" class="logo">
+                <span class="logo-cube">◆</span>
+                Block<span>Realm</span>
+            </a>
+
+            <nav id="navMenu">
+                <a href="#home">Home</a>
+                <a href="#modes">Game Modes</a>
+                <a href="#features">Features</a>
+                <a href="#staff">Staff</a>
+                <a href="#store">Store</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="play-btn" onclick="scrollToServer()">
+                    PLAY NOW
+                </button>
+
+                <button class="mobile-menu" onclick="toggleMenu()">
+                    ☰
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <main>
+
+        <section id="home" class="hero">
+
+            <div class="hero-overlay"></div>
+
+            <div class="container hero-content">
+
+                <div class="status-pill">
+                    <span class="status-dot"></span>
+                    SERVER ONLINE
+                </div>
+
+                <h1>
+                    YOUR NEXT
+                    <span>MINECRAFT</span>
+                    ADVENTURE
+                </h1>
+
+                <p>
+                    Explore a massive Minecraft network built for adventure,
+                    competition, creativity and unforgettable moments.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <button class="primary-btn" onclick="scrollToServer()">
+                        ▶ PLAY NOW
+                    </button>
+
+                    <a href="#modes" class="secondary-btn">
+                        EXPLORE SERVER
+                    </a>
+
+                </div>
+
+                <div class="server-card" id="serverCard">
+
+                    <div class="server-info">
+                        <span class="server-label">SERVER IP</span>
+                        <strong id="serverIP">play.blockrealm.net</strong>
+                    </div>
+
+                    <div class="server-players">
+                        <span class="server-label">PLAYERS ONLINE</span>
+                        <strong>
+                            <span id="players">247</span>/1000
+                        </strong>
+                    </div>
+
+                    <button class="copy-btn" onclick="copyIP()">
+                        COPY IP
+                    </button>
+
+                </div>
+
+                <div id="copyMessage" class="copy-message">
+                    Server IP copied!
+                </div>
+
+            </div>
+
+            <div class="scroll-indicator">
+                <span>SCROLL TO EXPLORE</span>
+                ↓
+            </div>
+
+        </section>
+
+
+        <!-- STATS -->
+        <section class="stats-section">
+
+            <div class="container stats-grid">
+
+                <div class="stat">
+                    <strong data-target="250000">0</strong>
+                    <span>Registered Players</span>
+                </div>
+
+                <div class="stat">
+                    <strong data-target="99">0</strong>
+                    <span>Server Uptime %</span>
+                </div>
+
+                <div class="stat">
+                    <strong data-target="12">0</strong>
+                    <span>Game Modes</span>
+                </div>
+
+                <div class="stat">
+                    <strong data-target="2021">0</strong>
+                    <span>Founded</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GAME MODES -->
+        <section id="modes" class="section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-tag">DISCOVER</span>
+                    <h2>GAME MODES</h2>
+                    <p>
+                        Whether you love survival, PvP or building,
+                        there is always something waiting for you.
+                    </p>
+                </div>
+
+                <div class="modes-grid">
+
+                    <article class="mode-card survival">
+                        <div class="mode-icon">🌲</div>
+                        <span class="mode-number">01</span>
+
+                        <h3>Survival</h3>
+
+                        <p>
+                            Build your empire, explore dangerous lands,
+                            fight monsters and create your own story.
+                        </p>
+
+                        <a href="#">LEARN MORE →</a>
+                    </article>
+
+
+                    <article class="mode-card skyblock">
+                        <div class="mode-icon">☁️</div>
+                        <span class="mode-number">02</span>
+
+                        <h3>SkyBlock</h3>
+
+                        <p>
+                            Start with nothing on a tiny island and
+                            build the ultimate floating kingdom.
+                        </p>
+
+                        <a href="#">LEARN MORE →</a>
+                    </article>
+
+
+                    <article class="mode-card factions">
+                        <div class="mode-icon">⚔️</div>
+                        <span class="mode-number">03</span>
+
+                        <h3>Factions</h3>
+
+                        <p>
+                            Create your faction, conquer territory,
+                            raid enemies and dominate the server.
+                        </p>
+
+                        <a href="#">LEARN MORE →</a>
+                    </article>
+
+
+                    <article class="mode-card minigames">
+                        <div class="mode-icon">🎮</div>
+                        <span class="mode-number">04</span>
+
+                        <h3>Mini Games</h3>
+
+                        <p>
+                            Compete against other players in fast,
+                            chaotic and competitive mini games.
+                        </p>
+
+                        <a href="#">LEARN MORE →</a>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURES -->
+        <section id="features" class="section features-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-tag">WHY US?</span>
+                    <h2>BUILT DIFFERENT</h2>
+                    <p>
+                        We focus on creating a Minecraft experience
+                        players actually want to come back to.
+                    </p>
+                </div>
+
+
+                <div class="features-grid">
+
+                    <div class="feature">
+                        <div class="feature-icon">⚡</div>
+                        <h3>High Performance</h3>
+                        <p>
+                            Powerful hardware and optimized plugins
+                            keep the server fast and lag-free.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>Advanced Anti-Cheat</h3>
+                        <p>
+                            Our security systems protect fair players
+                            and keep the competition clean.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">🌎</div>
+                        <h3>Global Network</h3>
+                        <p>
+                            High-quality infrastructure gives players
+                            around the world a smooth experience.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Constant Updates</h3>
+                        <p>
+                            New content, events and improvements are
+                            released regularly.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">🎁</div>
+                        <h3>Daily Rewards</h3>
+                        <p>
+                            Log in every day and earn rewards,
+                            cosmetics and special items.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">👥</div>
+                        <h3>Friendly Community</h3>
+                        <p>
+                            Meet thousands of players and become
+                            part of our growing community.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- STAFF -->
+        <section id="staff" class="section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-tag">OUR TEAM</span>
+                    <h2>MEET THE STAFF</h2>
+                    <p>
+                        The people working behind the scenes to make
+                        BlockRealm better every day.
+                    </p>
+                </div>
+
+                <div class="staff-grid">
+
+                    <div class="staff-card">
+                        <div class="staff-avatar">👑</div>
+                        <span class="role owner">OWNER</span>
+                        <h3>Alex</h3>
+                        <p>Founder & Owner</p>
+                    </div>
+
+                    <div class="staff-card">
+                        <div class="staff-avatar">⚡</div>
+                        <span class="role admin">ADMIN</span>
+                        <h3>Steve</h3>
+                        <p>Network Administrator</p>
+                    </div>
+
+                    <div class="staff-card">
+                        <div class="staff-avatar">🛡️</div>
+                        <span class="role moderator">MODERATOR</span>
+                        <h3>Jamie</h3>
+                        <p>Community Moderator</p>
+                    </div>
+
+                    <div class="staff-card">
+                        <div class="staff-avatar">🔧</div>
+                        <span class="role developer">DEVELOPER</span>
+                        <h3>Max</h3>
+                        <p>Plugin Developer</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- STORE -->
+        <section id="store" class="section store-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-tag">SUPPORT US</span>
+                    <h2>SERVER STORE</h2>
+                    <p>
+                        Support the server and unlock exclusive cosmetics
+                        and perks.
+                    </p>
+                </div>
+
+                <div class="store-grid">
+
+                    <div class="store-card">
+                        <span class="popular">POPULAR</span>
+                        <div class="rank-icon">⭐</div>
+
+                        <h3>VIP</h3>
+
+                        <div class="price">
+                            <span>$</span>9.99
+                        </div>
+
+                        <ul>
+                            <li>✓ VIP Rank</li>
+                            <li>✓ Exclusive Kit</li>
+                            <li>✓ Custom Prefix</li>
+                            <li>✓ 3 Extra Homes</li>
+                        </ul>
+
+                        <button>VIEW PACKAGE</button>
+                    </div>
+
+
+                    <div class="store-card featured">
+                        <span class="popular">BEST VALUE</span>
+                        <div class="rank-icon">💎</div>
+
+                        <h3>ELITE</h3>
+
+                        <div class="price">
+                            <span>$</span>19.99
+                        </div>
+
+                        <ul>
+                            <li>✓ Elite Rank</li>
+                            <li>✓ Exclusive Cosmetics</li>
+                            <li>✓ Custom Prefix</li>
+                            <li>✓ 10 Extra Homes</li>
+                        </ul>
+
+                        <button>VIEW PACKAGE</button>
+                    </div>
+
+
+                    <div class="store-card">
+                        <div class="rank-icon">👑</div>
+
+                        <h3>LEGEND</h3>
+
+                        <div class="price">
+                            <span>$</span>39.99
+                        </div>
+
+                        <ul>
+                            <li>✓ Legend Rank</li>
+                            <li>✓ Exclusive Cosmetics</li>
+                            <li>✓ Custom Prefix</li>
+                            <li>✓ Unlimited Homes</li>
+                        </ul>
+
+                        <button>VIEW PACKAGE</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DISCORD -->
+        <section class="discord-section">
+
+            <div class="container discord-container">
+
+                <div class="discord-icon">💬</div>
+
+                <div>
+                    <span class="section-tag">COMMUNITY</span>
+                    <h2>JOIN OUR DISCORD</h2>
+                    <p>
+                        Chat with other players, get support,
+                        participate in events and receive news.
+                    </p>
+                </div>
+
+                <a href="#" class="discord-btn">
+                    JOIN DISCORD
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- FAQ -->
+        <section id="faq" class="section">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-tag">HELP CENTER</span>
+                    <h2>FREQUENTLY ASKED QUESTIONS</h2>
+                </div>
+
+                <div class="faq">
+
+                    <div class="faq-item">
+                        <button onclick="toggleFAQ(this)">
+                            What is the server IP?
+                            <span>+</span>
+                        </button>
+
+                        <div class="faq-answer">
+                            Our official server address is
+                            <strong>play.blockrealm.net</strong>.
+                            Simply add it to your Minecraft multiplayer list.
+                        </div>
+                    </div>
+
+
+                    <div class="faq-item">
+                        <button onclick="toggleFAQ(this)">
+                            Which Minecraft versions are supported?
+                            <span>+</span>
+                        </button>
+
+                        <div class="faq-answer">
+                            We currently support Minecraft versions
+                            1.20.x and newer.
+                        </div>
+                    </div>
+
+
+                    <div class="faq-item">
+                        <button onclick="toggleFAQ(this)">
+                            Is the server free to play?
+                            <span>+</span>
+                        </button>
+
+                        <div class="faq-answer">
+                            Yes! The server is completely free to join.
+                            Optional purchases are available in our store.
+                        </div>
+                    </div>
+
+
+                    <div class="faq-item">
+                        <button onclick="toggleFAQ(this)">
+                            How can I become staff?
+                            <span>+</span>
+                        </button>
+
+                        <div class="faq-answer">
+                            Staff applications are opened periodically.
+                            Join our Discord to see when applications are available.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="container footer-grid">
+
+            <div>
+                <a href="#" class="logo">
+                    <span class="logo-cube">◆</span>
+                    Block<span>Realm</span>
+                </a>
+
+                <p>
+                    Your next Minecraft adventure starts here.
+                </p>
+            </div>
+
+            <div>
+                <h4>QUICK LINKS</h4>
+                <a href="#home">Home</a>
+                <a href="#modes">Game Modes</a>
+                <a href="#store">Store</a>
+                <a href="#faq">FAQ</a>
+            </div>
+
+            <div>
+                <h4>COMMUNITY</h4>
+                <a href="#">Discord</a>
+                <a href="#">Twitter</a>
+                <a href="#">YouTube</a>
+                <a href="#">TikTok</a>
+            </div>
+
+            <div>
+                <h4>SERVER</h4>
+                <p>Java Edition</p>
+                <p>play.blockrealm.net</p>
+                <p>Version 1.20+</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 BlockRealm. All rights reserved.
+            <br>
+            Not affiliated with Mojang Studios or Microsoft.
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
 </body>
 </html>
