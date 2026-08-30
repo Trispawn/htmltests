@@ -1,904 +1,459 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArchyverseV · Minecraft Server</title>
+  <!-- Font Awesome Icons (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    }
 
-    <title>ArchyverseV — Minecraft Network</title>
+    body {
+      background: #0b0e14;
+      color: #e4e9f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      background-image: radial-gradient(circle at 20% 30%, #1d2a3a 0%, #0a0d13 90%);
+    }
 
-    <meta
-        name="description"
-        content="ArchyverseV is a Minecraft network featuring Survival, Lifesteal, Parkour, OneBlock and BoxPvP."
-    >
+    .card {
+      max-width: 1100px;
+      width: 100%;
+      background: rgba(18, 24, 34, 0.8);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 3rem;
+      padding: 2.5rem 2.2rem;
+      box-shadow: 0 25px 45px -12px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.03);
+      transition: all 0.2s;
+    }
 
-    <link rel="stylesheet" href="style.css">
+    /* header */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .logo h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #f7d875, #f0b34b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .logo i {
+      font-size: 2.5rem;
+      color: #f0b34b;
+      filter: drop-shadow(0 0 8px #f0b34b55);
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      color: #b6c8e0;
+      margin-top: 0.2rem;
+      border-left: 3px solid #f0b34b;
+      padding-left: 1rem;
+      font-weight: 400;
+      background: linear-gradient(90deg, #b6c8e0, #8aa0c0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+      margin: 1.5rem 0 1rem 0;
+      font-size: 0.95rem;
+    }
+
+    .badge-row span {
+      background: #1f2a3b;
+      padding: 0.3rem 1rem 0.3rem 0.8rem;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid #31415a;
+      color: #c8d8f0;
+    }
+
+    .badge-row i {
+      color: #f0b34b;
+    }
+
+    /* grid games */
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0 2.2rem 0;
+    }
+
+    .game-item {
+      background: #141d2b;
+      padding: 1rem 0.5rem;
+      border-radius: 2.5rem;
+      text-align: center;
+      border: 1px solid #293851;
+      transition: 0.2s;
+      box-shadow: 0 6px 0 #0b1018;
+      cursor: default;
+    }
+
+    .game-item i {
+      font-size: 2rem;
+      color: #f7d875;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .game-item strong {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #eaf0fa;
+    }
+
+    .game-item small {
+      font-size: 0.7rem;
+      color: #9bb0cc;
+      opacity: 0.9;
+    }
+
+    .game-item:hover {
+      background: #1d2b40;
+      border-color: #f0b34b;
+      transform: translateY(-3px);
+    }
+
+    /* description blocks */
+    .desc-block {
+      background: #111b28;
+      border-radius: 2rem;
+      padding: 1.5rem 1.8rem;
+      margin: 1.8rem 0;
+      border-left: 6px solid #f0b34b;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .desc-block h3 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: #f5e7c1;
+      margin-bottom: 0.6rem;
+    }
+
+    .desc-block p {
+      color: #c6d6ec;
+      line-height: 1.5;
+      font-size: 1rem;
+    }
+
+    .ip-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      background: #0f1724;
+      border-radius: 3rem;
+      padding: 1.4rem 2rem;
+      margin: 1.8rem 0 1.2rem 0;
+      border: 1px solid #2a3b54;
+      justify-content: center;
+    }
+
+    .ip-box {
+      display: flex;
+      align-items: center;
+      gap: 6px 14px;
+      flex-wrap: wrap;
+    }
+
+    .ip-box i {
+      color: #f0b34b;
+      width: 1.8rem;
+      font-size: 1.3rem;
+    }
+
+    .ip-box .ip {
+      background: #1e2b3f;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-family: 'Courier New', monospace;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: #e6edf8;
+      border: 1px solid #3b5070;
+    }
+
+    .ip-box .label {
+      color: #a1b7d6;
+      font-weight: 400;
+    }
+
+    .discord-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: #5865F2;
+      color: white;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.15s;
+      border: 1px solid #7984f5;
+      margin-top: 0.4rem;
+    }
+
+    .discord-btn i {
+      font-size: 1.5rem;
+    }
+
+    .discord-btn:hover {
+      background: #4752c4;
+      transform: scale(1.02);
+      box-shadow: 0 0 18px #5865f266;
+    }
+
+    .footer-note {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #5f7595;
+      letter-spacing: 0.3px;
+    }
+
+    .copy-ip {
+      background: transparent;
+      border: none;
+      color: #e6edf8;
+      cursor: pointer;
+      transition: 0.1s;
+      font-size: 1rem;
+      padding: 0 6px;
+    }
+
+    .copy-ip:hover {
+      color: #f7d875;
+      transform: scale(1.1);
+    }
+
+    .toast {
+      visibility: hidden;
+      min-width: 180px;
+      background: #1f2f44;
+      color: #eaf0fa;
+      text-align: center;
+      border-radius: 40px;
+      padding: 0.5rem 1.5rem;
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s, visibility 0.3s;
+      border: 1px solid #f0b34b55;
+      box-shadow: 0 6px 18px #00000066;
+      z-index: 999;
+      font-weight: 500;
+    }
+
+    .toast.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    @media (max-width: 700px) {
+      .card { padding: 1.5rem; }
+      .logo h1 { font-size: 2rem; }
+      .ip-section { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- ================= NAVBAR ================= -->
+  <div class="card">
 
-<header class="navbar">
-
-    <div class="nav-inner">
-
-        <a href="#home" class="brand">
-            <span class="brand-icon">A</span>
-
-            <span>
-                Archyverse<span>V</span>
-            </span>
-        </a>
-
-        <nav id="navigation">
-
-            <a href="#home">Home</a>
-            <a href="#games">Games</a>
-            <a href="#why">Why Us</a>
-            <a href="#connect">Connect</a>
-            <a href="#faq">FAQ</a>
-
-        </nav>
-
-        <div class="nav-buttons">
-
-            <a
-                href="https://dsc.gg/archyverse"
-                target="_blank"
-                class="discord-link"
-            >
-                Discord
-            </a>
-
-            <a href="#connect" class="nav-play">
-                Play Now
-            </a>
-
-        </div>
-
-        <button
-            class="menu-button"
-            onclick="toggleMenu()"
-            aria-label="Open menu"
-        >
-            ☰
-        </button>
-
+    <!-- Header -->
+    <div class="logo">
+      <i class="fas fa-cube"></i>
+      <h1>ArchyverseV</h1>
+      <span style="margin-left: auto; background: #1f2a3b; padding: 0.2rem 1.2rem; border-radius: 40px; font-size: 0.8rem; border:1px solid #394f6b;">
+        <i class="fas fa-tachometer-alt" style="color: #7ae0a0;"></i> 1.7 – 26.1
+      </span>
+    </div>
+    <div class="tagline">
+      <i class="fas fa-rocket" style="color: #f0b34b; margin-right: 6px;"></i> multiple gamemodes · no lag
     </div>
 
-</header>
-
-
-<!-- ================= HERO ================= -->
-
-<section id="home" class="hero">
-
-    <div class="hero-background"></div>
-
-    <div class="hero-grid"></div>
-
-    <div class="hero-content">
-
-        <div class="server-badge">
-            <span></span>
-            MINECRAFT NETWORK
-        </div>
-
-        <h1>
-            YOUR NEXT
-            <strong>MINECRAFT</strong>
-            ADVENTURE
-        </h1>
-
-        <p>
-            Multiple gamemodes. One network.
-            Jump into Survival, Lifesteal, Parkour,
-            OneBlock, BoxPvP and more.
-        </p>
-
-        <div class="hero-actions">
-
-            <a href="#connect" class="button primary">
-                PLAY NOW
-            </a>
-
-            <a
-                href="https://dsc.gg/archyverse"
-                target="_blank"
-                class="button secondary"
-            >
-                JOIN DISCORD
-            </a>
-
-        </div>
-
-        <div class="hero-version">
-            <span>SUPPORTED VERSIONS</span>
-            <b>1.7 — 26.1</b>
-        </div>
-
+    <!-- Badges -->
+    <div class="badge-row">
+      <span><i class="fas fa-server"></i> Java / Eaglercraft</span>
+      <span><i class="fas fa-shield-halved"></i> Protection Stones</span>
+      <span><i class="fas fa-store"></i> Shop & DonutsMP</span>
+      <span><i class="fas fa-users"></i> community parkour</span>
     </div>
 
-    <div class="scroll-down">
-        SCROLL TO EXPLORE
-        <span>↓</span>
+    <!-- Games Grid -->
+    <div style="margin: 1.8rem 0 0.2rem 0; font-weight: 500; letter-spacing: 0.3px; color: #b6cde0;">
+      <i class="fas fa-gamepad" style="margin-right: 8px; color: #f0b34b;"></i> our games
     </div>
-
-</section>
-
-
-<!-- ================= INFO BAR ================= -->
-
-<section class="info-bar">
-
-    <div class="info-item">
-
-        <div class="info-icon">🎮</div>
-
-        <div>
-            <strong>Multiple Gamemodes</strong>
-            <span>Different ways to play</span>
-        </div>
-
-    </div>
-
-    <div class="info-item">
-
-        <div class="info-icon">⚡</div>
-
-        <div>
-            <strong>Optimized Network</strong>
-            <span>Built for a smooth experience</span>
-        </div>
-
-    </div>
-
-    <div class="info-item">
-
-        <div class="info-icon">🌐</div>
-
-        <div>
-            <strong>1.7 — 26.1</strong>
-            <span>Wide version support</span>
-        </div>
-
-    </div>
-
-    <div class="info-item">
-
-        <div class="info-icon">👥</div>
-
-        <div>
-            <strong>Community</strong>
-            <span>Built with players</span>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= GAMES ================= -->
-
-<section id="games" class="section">
-
-    <div class="section-heading">
-
-        <span>THE NETWORK</span>
-
-        <h2>
-            CHOOSE YOUR
-            <b>GAME</b>
-        </h2>
-
-        <p>
-            Explore everything ArchyverseV has to offer.
-            Every gamemode brings something different.
-        </p>
-
-    </div>
-
-
     <div class="games-grid">
-
-        <!-- SURVIVAL -->
-
-        <article class="game-card">
-
-            <div class="game-number">01</div>
-
-            <div class="game-icon">🌲</div>
-
-            <div class="game-status online">
-                AVAILABLE
-            </div>
-
-            <h3>Survival</h3>
-
-            <small>Minecraft 1.20.6</small>
-
-            <p>
-                A classic survival experience with over
-                70 plugins. Protect your base with Protection
-                Stones, use the shop, trade items and more.
-            </p>
-
-            <div class="tags">
-                <span>70+ PLUGINS</span>
-                <span>SHOP</span>
-                <span>PROTECTION</span>
-            </div>
-
-        </article>
-
-
-        <!-- LIFESTEAL -->
-
-        <article class="game-card">
-
-            <div class="game-number">02</div>
-
-            <div class="game-icon">❤️</div>
-
-            <div class="game-status online">
-                AVAILABLE
-            </div>
-
-            <h3>Anarchy / Lifesteal</h3>
-
-            <small>Minecraft 1.21.11</small>
-
-            <p>
-                A Lifesteal gamemode with an anarchy-inspired
-                experience and some cool features.
-            </p>
-
-            <div class="tags">
-                <span>LIFESTEAL</span>
-                <span>PVP</span>
-                <span>ANARCHY</span>
-            </div>
-
-        </article>
-
-
-        <!-- PARKOUR -->
-
-        <article class="game-card">
-
-            <div class="game-number">03</div>
-
-            <div class="game-icon">🏃</div>
-
-            <div class="game-status online">
-                AVAILABLE
-            </div>
-
-            <h3>Parkour</h3>
-
-            <small>Community Built</small>
-
-            <p>
-                A tough parkour experience created by
-                the ArchyverseV community. Test your movement
-                and see how far you can get.
-            </p>
-
-            <div class="tags">
-                <span>PARKOUR</span>
-                <span>CHALLENGES</span>
-                <span>COMMUNITY</span>
-            </div>
-
-        </article>
-
-
-        <!-- KITPVP -->
-
-        <article class="game-card disabled">
-
-            <div class="game-number">04</div>
-
-            <div class="game-icon">⚔️</div>
-
-            <div class="game-status offline">
-                TEMPORARILY OFFLINE
-            </div>
-
-            <h3>KitPvP</h3>
-
-            <small>Coming Back Soon</small>
-
-            <p>
-                Choose a kit, enter the arena and fight
-                other players to earn levels and money.
-                Use your rewards to unlock more kits.
-            </p>
-
-            <div class="tags">
-                <span>KITS</span>
-                <span>PVP</span>
-                <span>LEVELS</span>
-            </div>
-
-        </article>
-
-
-        <!-- ONEBLOCK -->
-
-        <article class="game-card">
-
-            <div class="game-number">05</div>
-
-            <div class="game-icon">🟦</div>
-
-            <div class="game-status online">
-                AVAILABLE
-            </div>
-
-            <h3>OneBlock</h3>
-
-            <small>Minecraft 1.12</small>
-
-            <p>
-                A classic OneBlock experience featuring
-                the Nether, End, Protection Stones and
-                plenty of progression.
-            </p>
-
-            <div class="tags">
-                <span>NETHER</span>
-                <span>THE END</span>
-                <span>PROTECTION</span>
-            </div>
-
-        </article>
-
-
-        <!-- BOXPVP -->
-
-        <article class="game-card">
-
-            <div class="game-number">06</div>
-
-            <div class="game-icon">📦</div>
-
-            <div class="game-status online">
-                AVAILABLE
-            </div>
-
-            <h3>BoxPvP</h3>
-
-            <small>Unique Experience</small>
-
-            <p>
-                It's BoxPvP... but not quite the classic
-                BoxPvP experience. Come and discover
-                what makes it different.
-            </p>
-
-            <div class="tags">
-                <span>BOXPVP</span>
-                <span>PVP</span>
-                <span>UNIQUE</span>
-            </div>
-
-        </article>
-
+      <div class="game-item"><i class="fas fa-tree"></i><strong>Survival</strong><small>1.20.6 · 70+ plugins</small></div>
+      <div class="game-item"><i class="fas fa-skull"></i><strong>Anarchy/Lifesteal</strong><small>1.21.11 · hardcore</small></div>
+      <div class="game-item"><i class="fas fa-person-running"></i><strong>Parkour</strong><small>community made</small></div>
+      <div class="game-item"><i class="fas fa-swords"></i><strong>KitPvP</strong><small>soon™ (RAM)</small></div>
+      <div class="game-item"><i class="fas fa-cube"></i><strong>Oneblock</strong><small>1.12 · nether/end</small></div>
+      <div class="game-item"><i class="fas fa-box"></i><strong>Boxpvp</strong><small>unique twist</small></div>
     </div>
 
-</section>
-
-
-<!-- ================= WHY US ================= -->
-
-<section id="why" class="section dark-section">
-
-    <div class="section-heading">
-
-        <span>WHY ARCHYVERSEV?</span>
-
-        <h2>
-            BUILT TO BE
-            <b>DIFFERENT</b>
-        </h2>
-
-        <p>
-            We want to offer multiple Minecraft experiences
-            without forcing players to choose only one.
-        </p>
-
+    <!-- Description / Why us -->
+    <div class="desc-block">
+      <h3><i class="fas fa-question-circle" style="color: #f0b34b;"></i> Why us?</h3>
+      <p>⚡ Our server offers a <strong>lot of games without lag</strong> with Minecraft 1.7 – 26.1 support!<br>
+      🛡️ Survival: Protection Stones, shop, donutsmp order system, and more.<br>
+      🔥 Anarchy/Lifesteal with cool features · Parkour built by the community.<br>
+      🧊 Oneblock with dimensions · Boxpvp: not your classic one.</p>
     </div>
 
-
-    <div class="features-grid">
-
-        <div class="feature">
-
-            <div class="feature-icon">⚡</div>
-
-            <h3>Performance</h3>
-
-            <p>
-                Our network is focused on providing
-                a smooth and enjoyable experience.
-            </p>
-
-        </div>
-
-
-        <div class="feature">
-
-            <div class="feature-icon">🎮</div>
-
-            <h3>Multiple Games</h3>
-
-            <p>
-                Survival, Lifesteal, Parkour, OneBlock,
-                BoxPvP and more.
-            </p>
-
-        </div>
-
-
-        <div class="feature">
-
-            <div class="feature-icon">🌍</div>
-
-            <h3>Wide Compatibility</h3>
-
-            <p>
-                Support ranging from Minecraft 1.7
-                all the way to 26.1.
-            </p>
-
-        </div>
-
-
-        <div class="feature">
-
-            <div class="feature-icon">🛠️</div>
-
-            <h3>Constant Development</h3>
-
-            <p>
-                New features, improvements and gamemodes
-                are continuously being worked on.
-            </p>
-
-        </div>
-
-
-        <div class="feature">
-
-            <div class="feature-icon">👥</div>
-
-            <h3>Community Driven</h3>
-
-            <p>
-                Our community has an important role
-                in the future of the server.
-            </p>
-
-        </div>
-
-
-        <div class="feature">
-
-            <div class="feature-icon">🔥</div>
-
-            <h3>Unique Experiences</h3>
-
-            <p>
-                Not every gamemode follows the usual
-                Minecraft formula.
-            </p>
-
-        </div>
-
+    <!-- IP Section -->
+    <div class="ip-section">
+      <div class="ip-box">
+        <i class="fas fa-globe"></i>
+        <span class="label">Eaglercraft:</span>
+        <span class="ip" id="eaglerIp">wss://mc.archyverse.org</span>
+        <button class="copy-ip" data-ip="wss://mc.archyverse.org" aria-label="copy eaglercraft ip"><i class="fas fa-copy"></i></button>
+      </div>
+      <div class="ip-box">
+        <i class="fab fa-java"></i>
+        <span class="label">Java:</span>
+        <span class="ip" id="javaIp">java.archyverse.org</span>
+        <button class="copy-ip" data-ip="java.archyverse.org" aria-label="copy java ip"><i class="fas fa-copy"></i></button>
+      </div>
+      <div class="ip-box">
+        <i class="fas fa-bed"></i>
+        <span class="label">Bedrock <span style="color:#f08c7a; font-size:0.7rem;">(not working)</span>:</span>
+        <span class="ip" style="opacity:0.6;">archyverse.org:19132</span>
+      </div>
     </div>
 
-</section>
-
-
-<!-- ================= CONNECT ================= -->
-
-<section id="connect" class="section">
-
-    <div class="section-heading">
-
-        <span>JOIN US</span>
-
-        <h2>
-            READY TO
-            <b>PLAY?</b>
-        </h2>
-
-        <p>
-            Choose your platform and connect to ArchyverseV.
-        </p>
-
+    <!-- Discord -->
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
+      <a href="https://dsc.gg/archyverse" target="_blank" class="discord-btn">
+        <i class="fab fa-discord"></i> Join our Discord
+      </a>
+      <span style="font-size: 0.9rem; color: #8ba2c2;">
+        <i class="fas fa-users" style="color: #f0b34b;"></i> dsc.gg/archyverse
+      </span>
     </div>
 
-
-    <div class="connection-grid">
-
-        <!-- JAVA -->
-
-        <div class="connection-card">
-
-            <div class="connection-icon">☕</div>
-
-            <span>JAVA EDITION</span>
-
-            <h3>Java</h3>
-
-            <p>
-                Connect using Minecraft Java Edition.
-            </p>
-
-            <div class="ip">
-
-                <code>java.archyverse.org</code>
-
-                <button
-                    onclick="copyText('java.archyverse.org', this)"
-                >
-                    COPY
-                </button>
-
-            </div>
-
-            <label class="available-label">
-                ● AVAILABLE
-            </label>
-
-        </div>
-
-
-        <!-- EAGLERCRAFT -->
-
-        <div class="connection-card featured">
-
-            <div class="connection-icon">🌐</div>
-
-            <span>EAGLERCRAFT</span>
-
-            <h3>Browser</h3>
-
-            <p>
-                Connect through a compatible Eaglercraft
-                client directly from your browser.
-            </p>
-
-            <div class="ip">
-
-                <code>wss://mc.archyverse.org</code>
-
-                <button
-                    onclick="copyText('wss://mc.archyverse.org', this)"
-                >
-                    COPY
-                </button>
-
-            </div>
-
-            <label class="available-label">
-                ● AVAILABLE
-            </label>
-
-        </div>
-
-
-        <!-- BEDROCK -->
-
-        <div class="connection-card disabled">
-
-            <div class="connection-icon">📱</div>
-
-            <span>BEDROCK EDITION</span>
-
-            <h3>Bedrock</h3>
-
-            <p>
-                Bedrock support is currently unavailable.
-            </p>
-
-            <div class="ip">
-
-                <code>archyverse.org</code>
-
-                <strong>19132</strong>
-
-            </div>
-
-            <label class="offline-label">
-                ● NOT WORKING RIGHT NOW
-            </label>
-
-        </div>
-
+    <div class="footer-note">
+      <i class="fas fa-crown" style="color: #f0b34b;"></i> ArchyverseV · multiple worlds, one community
     </div>
-
-
-    <!-- DISCORD -->
-
-    <div class="discord-card">
-
-        <div class="discord-logo">
-            💬
-        </div>
-
-        <div>
-
-            <span>COMMUNITY</span>
-
-            <h3>Join our Discord</h3>
-
-            <p>
-                Get updates, chat with players,
-                report issues and stay connected.
-            </p>
-
-        </div>
-
-        <a
-            href="https://dsc.gg/archyverse"
-            target="_blank"
-        >
-            JOIN DISCORD →
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- ================= FAQ ================= -->
-
-<section id="faq" class="section dark-section">
-
-    <div class="section-heading">
-
-        <span>HELP CENTER</span>
-
-        <h2>
-            FREQUENTLY ASKED
-            <b>QUESTIONS</b>
-        </h2>
-
-    </div>
-
-
-    <div class="faq">
-
-        <div class="faq-item">
-
-            <button onclick="toggleFAQ(this)">
-                What is ArchyverseV?
-                <span>+</span>
-            </button>
-
-            <div class="answer">
-                ArchyverseV is a Minecraft network featuring
-                multiple gamemodes such as Survival,
-                Anarchy/Lifesteal, Parkour, OneBlock and BoxPvP.
-            </div>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <button onclick="toggleFAQ(this)">
-                Which Minecraft versions are supported?
-                <span>+</span>
-            </button>
-
-            <div class="answer">
-                ArchyverseV supports Minecraft versions
-                ranging from 1.7 to 26.1.
-            </div>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <button onclick="toggleFAQ(this)">
-                What is the Java server IP?
-                <span>+</span>
-            </button>
-
-            <div class="answer">
-                The Java Edition server address is
-                <strong>java.archyverse.org</strong>.
-            </div>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <button onclick="toggleFAQ(this)">
-                Can I play using Eaglercraft?
-                <span>+</span>
-            </button>
-
-            <div class="answer">
-                Yes. The Eaglercraft WebSocket address is
-                <strong>wss://mc.archyverse.org</strong>.
-            </div>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <button onclick="toggleFAQ(this)">
-                Is Bedrock working?
-                <span>+</span>
-            </button>
-
-            <div class="answer">
-                No. Bedrock support is currently unavailable.
-                The intended address is archyverse.org
-                on port 19132.
-            </div>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <button onclick="toggleFAQ(this)">
-                Why is KitPvP offline?
-                <span>+</span>
-            </button>
-
-            <div class="answer">
-                KitPvP is temporarily unavailable because
-                of current RAM limitations.
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= CTA ================= -->
-
-<section class="cta">
-
-    <div class="cta-content">
-
-        <span>ARCHYVERSEV</span>
-
-        <h2>
-            YOUR ADVENTURE
-            <b>STARTS HERE.</b>
-        </h2>
-
-        <p>
-            Choose a gamemode. Join your friends.
-            Build your own story.
-        </p>
-
-        <div class="hero-actions">
-
-            <a href="#connect" class="button primary">
-                PLAY NOW
-            </a>
-
-            <a
-                href="https://dsc.gg/archyverse"
-                target="_blank"
-                class="button secondary"
-            >
-                DISCORD
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-    <div class="footer-inner">
-
-        <div class="footer-brand">
-
-            <a href="#home" class="brand">
-                <span class="brand-icon">A</span>
-
-                <span>
-                    Archyverse<span>V</span>
-                </span>
-            </a>
-
-            <p>
-                A Minecraft network with multiple
-                gamemodes, built for players who want
-                something different.
-            </p>
-
-        </div>
-
-
-        <div class="footer-column">
-
-            <h4>NAVIGATION</h4>
-
-            <a href="#home">Home</a>
-            <a href="#games">Games</a>
-            <a href="#why">Why Us</a>
-            <a href="#connect">Connect</a>
-
-        </div>
-
-
-        <div class="footer-column">
-
-            <h4>GAMES</h4>
-
-            <a href="#games">Survival</a>
-            <a href="#games">Lifesteal</a>
-            <a href="#games">Parkour</a>
-            <a href="#games">OneBlock</a>
-
-        </div>
-
-
-        <div class="footer-column">
-
-            <h4>COMMUNITY</h4>
-
-            <a
-                href="https://dsc.gg/archyverse"
-                target="_blank"
-            >
-                Discord
-            </a>
-
-            <a href="#faq">
-                FAQ
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        <span>
-            © 2026 ArchyverseV. All rights reserved.
-        </span>
-
-        <span>
-            Not affiliated with Mojang Studios or Microsoft.
-        </span>
-
-    </div>
-
-</footer>
-
-
-<div id="toast">
-    IP copied!
-</div>
-
-
-<script src="script.js"></script>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"><i class="fas fa-check-circle" style="color: #7ae0a0;"></i> IP copied!</div>
+
+  <script>
+    (function() {
+      const toast = document.getElementById('toast');
+      let timeoutId = null;
+
+      function showToast(message) {
+        if (timeoutId) {
+          clearTimeout(timeoutId);
+          toast.classList.remove('show');
+        }
+        // set message if needed
+        toast.innerHTML = `<i class="fas fa-check-circle" style="color: #7ae0a0;"></i> ${message}`;
+        toast.classList.add('show');
+        timeoutId = setTimeout(() => {
+          toast.classList.remove('show');
+          timeoutId = null;
+        }, 2200);
+      }
+
+      // copy buttons
+      const copyButtons = document.querySelectorAll('.copy-ip');
+      copyButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const ip = this.getAttribute('data-ip');
+          if (!ip) return;
+
+          // copy using clipboard API
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(ip).then(() => {
+              showToast('IP copied: ' + ip);
+            }).catch(() => {
+              // fallback
+              fallbackCopy(ip);
+            });
+          } else {
+            fallbackCopy(ip);
+          }
+        });
+      });
+
+      function fallbackCopy(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+          document.execCommand('copy');
+          showToast('IP copied: ' + text);
+        } catch (err) {
+          showToast('Could not copy');
+        }
+        document.body.removeChild(textarea);
+      }
+
+      // if someone clicks on IP span itself (nice extra)
+      document.querySelectorAll('.ip').forEach(ipSpan => {
+        ipSpan.addEventListener('click', function() {
+          const ipText = this.innerText.trim();
+          if (ipText && !ipText.includes('not working')) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(ipText).then(() => {
+                showToast('IP copied: ' + ipText);
+              }).catch(() => fallbackCopy(ipText));
+            } else {
+              fallbackCopy(ipText);
+            }
+          }
+        });
+      });
+
+      // small interactive touch: hover effect on game items (already in css)
+      console.log('ArchyverseV · ready');
+    })();
+  </script>
 
 </body>
 </html>
-```
