@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArchyverseV — Botiga</title>
+  <meta name="description" content="Official Store d'ArchyverseV">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#">
+      <img src="archyverse.png" alt="ArchyverseV">
+      <span>ARCHYVERSE<span class="blue">V</span></span>
+    </a>
+    <nav>
+      <a href="https://archyverse.tebex.io/category/survival">Survival Money</a>
+      <a href="#ranks">Ranks</a>
+      <a href="https://archyverse.tebex.io/category/vtokens">VTokens</a>
+      <a href="#contributions">Contributions</a>
+    </nav>
+    <button class="cart-btn" id="openCart">
+      🛒 <span>Carret</span> <b id="cartCount">0</b>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">✦ OFFICIAL STORE ✦</div>
+        <h1>Take your<br><span>server</span> to the next level.</h1>
+        <p>Ranks, currency and exclusive rewards to stand out on ArchyverseV.</p>
+        <div class="hero-actions">
+          <a class="primary" href="#botiga">Browse products <span>→</span></a>
+          <a class="secondary" href="#com-funciona">How does it work?</a>
+        </div>
+        <div class="server-status"><i></i> Server online <strong>archyverse.org</strong></div>
+      </div>
+      <div class="hero-art">
+        <img src="archyverse.png" alt="Artwork ArchyverseV">
+      </div>
+    </section>
+
+    <section class="trust">
+      <div><strong>⚡</strong><span>Automatic delivery</span></div>
+      <div><strong>🔒</strong><span>Secure payment</span></div>
+      <div><strong>🎁</strong><span>Exclusive rewards</span></div>
+      <div><strong>💎</strong><span>24/7 Support</span></div>
+    </section>
+
+    <section id="botiga" class="shop-section">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">STORE</div>
+          <h2>Choose your <span>reward</span></h2>
+        </div>
+        <div class="filters">
+          <button class="filter active" data-category="all">All</button>
+          <button class="filter" data-category="rank">Ranks</button>
+          <button class="filter" data-category="coins">VTokens</button>
+          <button class="filter" data-category="crate">Packs</button>
+        </div>
+      </div>
+
+      <div class="products" id="products">
+        <article class="product" data-category="rank" data-id="vip" data-name="VIP" data-price="5.99" data-icon="👑">
+          <div class="product-icon gold">👑</div>
+          <span class="tag">POPULAR</span>
+          <h3>VIP Rank</h3>
+          <p class="muted">VIP benefits for 30 days.</p>
+          <ul><li>Prefix <b>[VIP]</b></li><li>Exclusive VIP kit</li><li>2 extra homes</li></ul>
+          <div class="price-row"><strong>5,99 €</strong><button class="add">Add</button></div>
+        </article>
+
+        <article class="product featured" data-category="rank" data-id="mvp" data-name="MVP" data-price="11.99" data-icon="💎">
+          <div class="product-icon blue-bg">💎</div>
+          <span class="tag blue-tag">RECOMANAT</span>
+          <h3>MVP Rank</h3>
+          <p class="muted">The ideal rank for regular players.</p>
+          <ul><li>Prefix <b>[MVP]</b></li><li>Exclusive MVP kit</li><li>5 extra homes</li></ul>
+          <div class="price-row"><strong>11,99 €</strong><button class="add">Add</button></div>
+        </article>
+
+        <article class="product" data-category="rank" data-id="legend" data-name="LEGEND" data-price="24.99" data-icon="⚔️">
+          <div class="product-icon purple">⚔️</div>
+          <span class="tag purple-tag">LEGENDARI</span>
+          <h3>LEGEND Rank</h3>
+          <p class="muted">The ultimate rank for our most dedicated players.</p>
+          <ul><li>Prefix <b>[LEGEND]</b></li><li>Exclusive LEGEND kit</li><li>10 extra homes</li></ul>
+          <div class="price-row"><strong>24,99 €</strong><button class="add">Add</button></div>
+        </article>
+
+        <article class="product" data-category="coins" data-id="coins500" data-name="500 Coins" data-price="2.99" data-icon="🪙">
+          <div class="product-icon green">🪙</div>
+          <span class="tag green-tag">MONEDES</span>
+          <h3>500 Coins</h3>
+          <p class="muted">Spend them in the server shop.</p>
+          <ul><li>500 coins</li><li>Entrega instantània</li><li>Sense caducitat</li></ul>
+          <div class="price-row"><strong>2,99 €</strong><button class="add">Add</button></div>
+        </article>
+
+        <article class="product" data-category="coins" data-id="coins1500" data-name="1,500 Coins" data-price="7.49" data-icon="💰">
+          <div class="product-icon gold">💰</div>
+          <span class="tag">BON VALOR</span>
+          <h3>1,500 Coins</h3>
+          <p class="muted">More coins, better value.</p>
+          <ul><li>1,500 coins</li><li>Entrega instantània</li><li>Sense caducitat</li></ul>
+          <div class="price-row"><strong>7,49 €</strong><button class="add">Add</button></div>
+        </article>
+
+        <article class="product" data-category="crate" data-id="crate" data-name="Crate Pack" data-price="8.99" data-icon="🎁">
+          <div class="product-icon red">🎁</div>
+          <span class="tag red-tag">PACK</span>
+          <h3>Crate Pack</h3>
+          <p class="muted">A pack of keys to test your luck.</p>
+          <ul><li>5 Rare keys</li><li>2 Epic keys</li><li>1 Legendary key</li></ul>
+          <div class="price-row"><strong>8,99 €</strong><button class="add">Add</button></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="ranks" class="promo">
+      <div>
+        <div class="eyebrow">SPECIAL OFFER</div>
+        <h2>Become <span>LEGEND</span>.</h2>
+        <p>Unlock exclusive benefits and make your name stand out on the server.</p>
+      </div>
+      <a class="primary" href="#botiga">View ranks →</a>
+    </section>
+
+    <section id="contributions" class="how">
+      <div class="eyebrow">CONTRIBUTIONS</div>
+      <h2>Shopping is <span>easy.</span></h2>
+      <div class="steps">
+        <div><b>01</b><h3>Tria</h3><p>Choose the product you want.</p></div>
+        <div><b>02</b><h3>Compra</h3><p>Add it to your cart and complete checkout.</p></div>
+        <div><b>03</b><h3>Gaudeix</h3><p>Receive your product in-game.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><img src="archyverse.png" alt=""> <span>ARCHYVERSE<span class="blue">V</span></span></div>
+    <p>© 2026 ArchyverseV. Alls els drets reservats.</p>
+    <div><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Discord</a></div>
+  </footer>
+
+  <aside class="cart" id="cart">
+    <div class="cart-head"><h2>Your cart</h2><button id="closeCart">✕</button></div>
+    <div id="cartItems" class="cart-items"><div class="empty">Your cart is empty.<br><span>Add a product to get started!</span></div></div>
+    <div class="cart-bottom">
+      <div><span>Allal</span><strong id="cartAllal">0,00 €</strong></div>
+      <button id="checkout" class="primary full">Continue to checkout</button>
+    </div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-icon">⚡</div>
+    <h2>Demo Checkout</h2>
+    <p>The cart and checkout are ready. Connect Tebex, Stripe or your preferred payment system here.</p>
+    <div class="demo-total">Allal: <strong id="modalAllal">0,00 €</strong></div>
+    <button class="primary full" id="demoPay">Simulate payment</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
